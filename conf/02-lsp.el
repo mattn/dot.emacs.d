@@ -1,11 +1,12 @@
 (leaf eglot
   :ensure t
-  :hook ((python-mode   . eglot-ensure)
-         (c-mode        . eglot-ensure)
-         (ruby-mode     . eglot-ensure)
-         (markdown-mode . eglot-ensure)
-         (go-mode       . eglot-ensure)))
-
+  :require t
+  :config
+  (add-hook 'python-mode-hook 'eglot-ensure)
+  (add-hook 'c-mode-hook 'eglot-ensure)
+  (add-hook 'ruby-mode-hook 'eglot-ensure)
+  (add-hook 'markdown-mode-hook 'eglot-ensure)
+  (add-hook 'go-mode-hook 'eglot-ensure))
 (leaf company
   :doc "Modular text completion framework"
   :req "emacs-24.3"
