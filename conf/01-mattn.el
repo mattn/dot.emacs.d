@@ -48,10 +48,10 @@
 (show-paren-mode t)
 (setq show-paren-style 'expression)
 
-(recentf-mode 1)
-(setq recentf-max-menu-items 25)
-(setq recentf-max-saved-items 25)
-(global-set-key "\C-x\ \C-r" 'recentf-open-files)
+;(recentf-mode 1)
+;(setq recentf-max-menu-items 25)
+;(setq recentf-max-saved-items 25)
+;(global-set-key "\C-x\ \C-r" 'recentf-open-files)
 
 ;(set-face-background 'show-paren-match-face "#800")
 ;(set-face-background 'region "#555")
@@ -115,6 +115,7 @@
 	    (setq helm-buffers-fuzzy-matching t)
             (helm-mode 1)))
 
+(global-set-key (kbd "C-c t") 'helm-recentf)
 (setq helm-ff-auto-update-initial-value nil)
 
 (leaf perl-mode
