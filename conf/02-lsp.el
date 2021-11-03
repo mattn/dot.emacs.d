@@ -13,7 +13,7 @@
   :tag "matching" "convenience" "abbrev" "emacs>=24.3"
   :url "http://company-mode.github.io/"
   :ensure t
-  :blackout t
+  ;:blackout t
   :leaf-defer nil
   :bind ((company-active-map
           ("M-n" . nil)
@@ -34,14 +34,17 @@
 
 
 (leaf company-lsp
-  :ensure t
-  :after (lsp-mode)
-  :diminish company-lsp
-  :config
-  (push 'company-lsp company-backends)
-  (setq company-lsp-async t)
-  (setq company-lsp-cache-candidates t)
-  (setq company-lsp-enable-recompletion t))
+  :url "https://github.com/tigersoldier/company-lsp"
+  :commands company-lsp company
+  :custom
+  (company-lsp-cache-candidates . nil)
+  (company-lsp-async . t)
+  (company-lsp-enable-recompletion . t)
+  (company-lsp-enable-snippet . t)
+  :after
+  (:all lsp-mode lsp-ui company yasnippet)
+  (leaf lsp-treemacs :ensure t)
+)
 
 (leaf clang-format
   :ensure t)
