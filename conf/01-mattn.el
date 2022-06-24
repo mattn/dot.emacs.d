@@ -34,9 +34,9 @@
 (setq linum-mode t)
 
 ;; Shell 名の設定
-(setq shell-file-name "cmdproxy")
-(setenv "SHELL" shell-file-name)
-(setq explicit-shell-file-name shell-file-name)
+;(setq shell-file-name "c:/msys64/usr/bin/bash.exe")
+;(setenv "SHELL" shell-file-name)
+;(setq explicit-shell-file-name shell-file-name)
 
 (set-language-environment "Japanese")
 (prefer-coding-system 'utf-8-unix)
@@ -154,3 +154,6 @@
 (leaf js2-mode
   :mode "\\.js\\'"
   :interpreter "node")
+
+;(require 'fakecygpty)
+;(fakecygpty-activate)

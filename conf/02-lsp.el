@@ -52,3 +52,10 @@
 (with-eval-after-load 'eglot
   (add-to-list 'eglot-server-programs
     `(markdown-mode . ("efm-langserver"))))
+
+(leaf go-mode
+  :ensure t
+  :commands go-mode
+  :config
+  (setq gofmt-command "goimports")
+  (add-hook 'before-save-hook 'gofmt-before-save))
