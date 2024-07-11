@@ -38,7 +38,7 @@
  ;; If there is more than one, they won't work right.
  '(init-loader-show-log-after-init 'error-only)
  '(package-selected-packages
-   '(coterm ## package-utils eglot use-package quickrun init-loader helm go-eldoc auto-complete)))
+   '(## package-utils eglot use-package quickrun init-loader helm go-eldoc auto-complete)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

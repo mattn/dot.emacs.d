@@ -6,7 +6,9 @@
   (add-hook 'c-mode-hook 'eglot-ensure)
   (add-hook 'ruby-mode-hook 'eglot-ensure)
   (add-hook 'markdown-mode-hook 'eglot-ensure)
-  (add-hook 'go-mode-hook 'eglot-ensure))
+  (add-hook 'go-mode-hook 'eglot-ensure)
+  (add-hook 'zig-mode-hook 'eglot-ensure))
+
 (leaf company
   :doc "Modular text completion framework"
   :req "emacs-24.3"
@@ -33,29 +35,37 @@
   :global-minor-mode global-company-mode)
 
 
-(leaf company-lsp
-  :url "https://github.com/tigersoldier/company-lsp"
-  :commands company-lsp company
-  :custom
-  (company-lsp-cache-candidates . nil)
-  (company-lsp-async . t)
-  (company-lsp-enable-recompletion . t)
-  (company-lsp-enable-snippet . t)
-  :after
-  (:all lsp-mode lsp-ui company yasnippet)
-  (leaf lsp-treemacs :ensure t)
-)
-
-(leaf clang-format
+;(leaf company-lsp
+;  :url "https://github.com/tigersoldier/company-lsp"
+;  :commands company-lsp company
+;  :custom
+;  (company-lsp-cache-candidates . nil)
+;  (company-lsp-async . t)
+;  (company-lsp-enable-recompletion . t)
+;  (company-lsp-enable-snippet . t)
+;  :after
+;  (:all lsp-mode lsp-ui company yasnippet)
+;  (leaf lsp-treemacs :ensure t)
+;)
+(leaf company-capf
   :ensure t)
 
-(with-eval-after-load 'eglot
-  (add-to-list 'eglot-server-programs
-    `(markdown-mode . ("efm-langserver"))))
-
+;(leaf clang-format
+;  :ensure t)
+;
+;(with-eval-after-load 'eglot
+;  (add-to-list 'eglot-server-programs
+;    `(markdown-mode . ("efm-langserver"))))
+;
 (leaf go-mode
   :ensure t
   :commands go-mode
   :config
   (setq gofmt-command "goimports")
   (add-hook 'before-save-hook 'gofmt-before-save))
+;
+;(leaf zig-mode
+;  :ensure t
+;  :commands zig-mode
+;  :config
+;  (add-hook 'before-save-hook 'zigfmt-before-save))
