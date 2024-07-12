@@ -47,8 +47,8 @@
 ;  (:all lsp-mode lsp-ui company yasnippet)
 ;  (leaf lsp-treemacs :ensure t)
 ;)
-(leaf company-capf
-  :ensure t)
+;(leaf company-capf
+;  :ensure t)
 
 ;(leaf clang-format
 ;  :ensure t)
